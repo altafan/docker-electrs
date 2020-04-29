@@ -1,4 +1,4 @@
-FROM rust:latest AS builder
+FROM rust:stretch AS builder
 
 RUN apt-get update
 RUN apt-get install -y clang cmake
@@ -9,7 +9,7 @@ WORKDIR /electrs
 
 RUN cargo build --features liquid --release --bin electrs
 
-FROM ubuntu:19.04
+FROM debian:stable-slim
 
 WORKDIR /build
 

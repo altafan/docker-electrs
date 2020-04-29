@@ -1,7 +1,6 @@
-FROM rust:latest AS builder
+FROM rust:stretch AS builder
 
-RUN apt-get update
-RUN apt-get install -y clang cmake
+RUN apt-get update && apt-get install -y clang cmake
 
 RUN git clone https://github.com/blockstream/electrs
 
@@ -9,7 +8,7 @@ WORKDIR /electrs
 
 RUN cargo build --release --bin electrs
 
-FROM ubuntu:19.04
+FROM debian:stable-slim
 
 WORKDIR /build
 
