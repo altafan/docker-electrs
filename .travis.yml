@@ -19,8 +19,7 @@ before_script:
 
 script:
   - |
-    function buildAndPush {
-      if [ "$TRAVIS_REPO_SLUG" != "vulpemventures/docker-electrs" ] || [ "$TRAVIS_BRANCH" != "master" ]; then
+    if [ "$TRAVIS_REPO_SLUG" != "vulpemventures/docker-electrs" ] || [ "$TRAVIS_BRANCH" != "master" ]; then
       docker buildx build \
         --progress plain \
         --platform=linux/amd64,linux/arm/v7 \
@@ -33,10 +32,5 @@ script:
       --push \
       --progress plain \
       --platform=linux/amd64,linux/arm/v7 \
-      -t vulpemventures/$1:latest \
-      -f $2 \
+      -t vulpemventures/electrs:latest \
       .
-    }
-
-    buildAndPush electrs Dockerfile
-    buildAndPush electrs-liquid Dockerfile.liquid

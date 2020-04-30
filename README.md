@@ -1,33 +1,17 @@
 # Docker electrs
 
-Dockerfile of the public images [vulpemventures/electrs](https://hub.docker.com/r/vulpemventures/electrs) and [vulpemventures/electrs-liquid](https://hub.docker.com/r/vulpemventures/electrs-liquid)
-
+Dockerfile of the public images [vulpemventures/electrs:latest](https://hub.docker.com/r/vulpemventures/electrs).
 
 ## Electrs
 
 Pull the image:
 
 ```bash
-$ docker pull vulpemventures/electrs
+$ docker pull vulpemventures/electrs:latest
 ```
 
 Run the container:
 
 ```bash
-$ docker run -p 3002:3002 -d vulpemventures/electrs
-```
-
-
-## Electrs Liquid
- 
-Pull the image:
-
-```bash
-$ docker pull vulpemventures/electrs-liquid
-```
-
-Run the container:
-
-```bash
-$ docker run -p 3002:3002 -d vulpemventures/electrs-liquid
+$ docker run -p 3002:3002 -d vulpemventures/electrs:latest
 ```
